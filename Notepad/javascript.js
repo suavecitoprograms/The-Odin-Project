@@ -1,3 +1,4 @@
+/*
 const a = "a"
 const b = "b"
 
@@ -11,7 +12,7 @@ else {
     console.log(`${a} and ${b} are equal.` )
 }
 
-let name = "reniel"
+let name = "name"
 console.log(name)
 
 
@@ -71,16 +72,67 @@ function min(a, b) {
     return (a<b)? a: b;
 }
 
-function ask(question, yes, no) {
-    if (confirm(question)) yes();
-    else no();
+
+
+for (let i = 0; i <= 10; i++) {
+    if (i % 2 !== 0) continue;
+    console.log(i)
+}
+
+console.log("")
+
+for (let i = 0; i <= 10; i += 2) {
+    console.log(i)
+}
+
+console.log("")
+
+for (let i = 0; i < 3; i++) {
+    console.log( `number ${i}!` );
+}
+
+console.log("")
+let i = 0;
+while (i < 3) {
+    console.log(`number ${i}!`);
+    i ++;
+}
+
+
+
+
+while (true) {
+    let userInput = +prompt("Write a number greater than 100: ")
+    if (userInput > 100 || userInput === "") break;
+}
+*/
+
+/**
+ * 
+ * An integer number greater than 1 is called a prime if it cannot be divided without a remainder by anything except 1 and itself.
+
+In other words, n > 1 is a prime if it can’t be evenly divided by anything except 1 and n.
+
+For example, 5 is a prime, because it cannot be divided without a remainder by 2, 3 and 4.
+
+Write the code which outputs prime numbers in the interval from 2 to n.
+
+For n = 10 the result will be 2,3,5,7.
+
+P.S. The code should work for any n, not be hard-tuned for any fixed value.
+
+ */
+
+function checkPrimeNumbers(number) {
+    if (number <= 1) return;
+    let outputString = ``;
+    outer: for (let i = 2; i <= number; i++) {
+      for (let j = 2; j < i; j++) {
+        if (i % j === 0) continue outer;
+      }
+      outputString += `${i}, `;
+    }
+    return outputString;
   }
-  
-  ask(
-    "Do you agree?",
-    () => alert("You agreed!",
-    () => alert("You cancelled execution!")
-  );
 
-  // replacing to arrow functions
-
+console.log(checkPrimeNumbers(10))
